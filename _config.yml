@@ -87,4 +87,4 @@ exclude_generator:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: heroku
-  repo: http://miramant-blog.herokuapp.com/
+  repo: git@heroku.com:miramant-blog.git
