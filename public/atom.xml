@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Freefall Musings]]></title>
+  <subtitle><![CDATA[Musings of an Aspiring Renaissance Man]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://joshmiramant.com/"/>
+  <updated>2014-06-17T15:26:44.801Z</updated>
+  <id>http://joshmiramant.com/</id>
+  
+  <author>
+    <name><![CDATA[Josh Miramant]]></name>
+    <email><![CDATA[josh@miramant.me]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Words to Live by]]></title>
+    <link href="http://joshmiramant.com/2014/06/17/words-to-live-by/"/>
+    <id>http://joshmiramant.com/2014/06/17/words-to-live-by/</id>
+    <published>2014-06-17T15:01:29.000Z</published>
+    <updated>2014-06-17T15:08:18.000Z</updated>
+    <content type="html"><![CDATA[<p>Just came across a favorite quote of mine:</p>
+<p>&#x201C;So live your life that the fear of death can never enter your heart. Trouble no one about their religion; respect others in their view, and demand that they respect yours. </p>
+<p>Love your life, perfect your life, beautify all things in your life. Seek to make your life long and its purpose in the service of your people. Prepare a noble death song for the day when you go over the great divide. </p>
+<p>Always give a word or a sign of salute when meeting or passing a friend, even a stranger, when in a lonely place. Show respect to all people and grovel to none. When you arise in the morning give thanks for the food and for the joy of living. If you see no reason for giving thanks, the fault lies only in yourself. </p>
+<p>Abuse no one and no thing, for abuse turns the wise ones to fools and robs the spirit of its vision. When it comes your time to die, be not like those whose hearts are filled with the fear of death, so that when their time comes they weep and pray for a little more time to live their lives over again in a different way. </p>
+<p>Sing your death song and die like a hero going home.&#x201D; </p>
+<ul>
+<li>Tecumseh</li>
+</ul>
+]]></content>
+    
+    
+      <category term="thoughts" scheme="http://joshmiramant.com/tags/thoughts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Js Env Config]]></title>
+    <link href="http://joshmiramant.com/2014/06/04/js-env-config/"/>
+    <id>http://joshmiramant.com/2014/06/04/js-env-config/</id>
+    <published>2014-06-04T15:55:48.000Z</published>
+    <updated>2014-06-04T16:11:05.000Z</updated>
+    <content type="html"><![CDATA[<p>When switching to JS apps from Rails, I missed the ENV declaration that&#x2019;s built into configuration, so I through together this solution: </p>
+<p><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+</pre></td><td class="code"><pre>
+<span class="comment"># RequireJS Declaration</span>
+define [<span class="string">&quot;APP&quot;</span>], <span class="function"><span class="params">(APP)</span> -&gt;</span>
+
+<span class="comment"># Set an ENV case statment from location.hostname to return the envionment type base on the url</span>
+  APP.<span class="function"><span class="title">ENV</span> = <span class="params">(key)</span> -&gt;</span>
+    env = <span class="keyword">switch</span> <span class="built_in">window</span>.location.hostname
+      <span class="keyword">when</span> <span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;127.0.0.1&quot;</span> <span class="keyword">then</span> <span class="string">&quot;development&quot;</span>
+      <span class="keyword">when</span> <span class="string">&quot;test.example.com&quot;</span> <span class="keyword">then</span> <span class="string">&quot;qa&quot;</span>
+      <span class="keyword">when</span> <span class="string">&quot;staging.example.com&quot;</span> <span class="keyword">then</span> <span class="string">&quot;staging&quot;</span>
+      <span class="keyword">when</span> <span class="string">&quot;example.com&quot;</span> <span class="keyword">then</span> <span class="string">&quot;production&quot;</span>
+
+<span class="comment"># Set ENV Keys in json variable</span>
+    envKeys =
+      <span class="attribute">development</span>:
+        <span class="attribute">apiKey</span>: &lt;apiKey&gt;
+        <span class="attribute">fbKey</span>: &lt;fbKey&gt;
+      <span class="attribute">qa</span>:
+        <span class="attribute">apiKey</span>: &lt;apiKey&gt;
+        <span class="attribute">fbKey</span>: &lt;fbKey&gt;
+      <span class="attribute">staging</span>:
+        <span class="attribute">apiKey</span>: &lt;apiKey&gt;
+        <span class="attribute">fbKey</span>: &lt;fbKey&gt;
+      <span class="attribute">production</span>:
+        <span class="attribute">apiKey</span>: &lt;apiKey&gt;
+        <span class="attribute">fbKey</span>: &lt;fbKey&gt;
+
+    envKeys[env][key]
+
+<span class="comment">#This is for requireJS</span>
+  GMA.ENV
+
+App.ENV(&lt;key&gt;)
+</pre></td></tr></table></figure><br>I&#x2019;d love to see how other people are doing ENV config on single page js apps.</p>
+]]></content>
+    
+    
+      <category term="code" scheme="http://joshmiramant.com/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[My Sass Affair]]></title>
+    <link href="http://joshmiramant.com/2014/06/04/my-sass-affair/"/>
+    <id>http://joshmiramant.com/2014/06/04/my-sass-affair/</id>
+    <published>2014-06-04T11:43:54.000Z</published>
+    <updated>2014-06-04T12:25:59.000Z</updated>
+    <content type="html"><![CDATA[<p>I took a couple hours last week to leave my beloved CoffeeScript land, and dive into some awesome SASS refactors. It reminded me how powerful the compiler really is. At times, I found myself swearing at the syntax, but then I remembered that I was writing CSS, quit my whining and fell a little more in love&#x2026;</p>
+<p>Here&#x2019;s the starting code. Get ready. It&#x2019;s ugly. Don&#x2019;t run:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+</pre></td><td class="code"><pre><span class="comment">#gem-progress</span>
+  float: left
+  width: <span class="number">30</span>%
+  .prog-gem
+    width: <span class="number">20</span>%
+    height: <span class="number">45</span>px
+    float: left
+    &amp;.locked
+      background-image: url(<span class="string">&apos;/assets/journey/grey-gem.png&apos;</span>)
+      background-size: <span class="number">89</span>%
+      background-repeat: no-repeat
+      background-position: <span class="number">50</span>% <span class="number">60</span>%
+    &amp;.current
+      &amp;<span class="comment">#strengths</span>
+        background-image: url(<span class="string">&apos;/assets/journey/blue-gem-outline.png&apos;</span>)
+        background-size: <span class="number">86</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#others</span>
+        background-image: url(<span class="string">&apos;/assets/journey/green-gem-outline.png&apos;</span>)
+        background-size: <span class="number">86</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#networking</span>
+        background-image: url(<span class="string">&apos;/assets/journey/pink-gem-outline.png&apos;</span>)
+        background-size: <span class="number">86</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#approach</span>
+        background-image: url(<span class="string">&apos;/assets/journey/yellow-gem-outline.png&apos;</span>)
+        background-size: <span class="number">86</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#coworker</span>
+        background-image: url(<span class="string">&apos;/assets/journey/purple-gem-outline.png&apos;</span>)
+        background-size: <span class="number">86</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+    &amp;.complete
+      &amp;<span class="comment">#strengths</span>
+        background-image: url(<span class="string">&apos;/assets/journey/blue-gem.png&apos;</span>)
+        background-size: <span class="number">100</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#others</span>
+        background-image: url(<span class="string">&apos;/assets/journey/green-gem.png&apos;</span>)
+        background-size: <span class="number">100</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#networking</span>
+        background-image: url(<span class="string">&apos;/assets/journey/pink-gem.png&apos;</span>)
+        background-size: <span class="number">100</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#approach</span>
+        background-image: url(<span class="string">&apos;/assets/journey/yellow-gem.png&apos;</span>)
+        background-size: <span class="number">100</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+      &amp;<span class="comment">#coworker</span>
+        background-image: url(<span class="string">&apos;/assets/journey/purple-gem.png&apos;</span>)
+        background-size: <span class="number">100</span>%
+        background-repeat: no-repeat
+        background-position: <span class="number">50</span>% <span class="number">60</span>%
+</pre></td></tr></table></figure>
+
+<p>&#x2026;pheww. That was painful to look at. But here was my refactor:</p>
+<figure class="highlight sass"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="variable">$journey_states</span><span class="symbol">:</span> complete, <span class="keyword">in</span>-progress, current
+<span class="variable">$joureny_packets</span><span class="symbol">:</span> strengths, others, networking, approach, 
+  coworker
+<span class="variable">$joureny_colors</span><span class="symbol">:</span> blue, green, pink, yellow, purple
+  <span class="variable">@each</span> <span class="variable">$packet</span> <span class="keyword">in</span> <span class="variable">$joureny_packets</span>
+    <span class="variable">@each</span> <span class="variable">$state</span> <span class="keyword">in</span> <span class="variable">$journey_states</span>
+      <span class="variable">$i</span><span class="symbol">:</span> index(<span class="variable">$joureny_packets</span>, <span class="variable">$packet</span>)
+      <span class="variable">@if</span> <span class="variable">$state</span> == <span class="string">&apos;complete&apos;</span>
+        .<span class="comment">#{$state}</span>
+          &amp;<span class="comment">##{$packet}</span>
+            <span class="symbol">background:</span>
+              <span class="symbol">image:</span> url(<span class="string">&apos;<span class="subst">#{nth(<span class="variable">$joureny_colors</span>, <span class="variable">$i</span>)}</span>-gem.png&apos;</span>)
+              <span class="symbol">size:</span> <span class="number">100</span>%
+              <span class="symbol">repeat:</span> no-repeat
+              <span class="symbol">position:</span> <span class="number">50</span>% <span class="number">60</span>%
+      <span class="variable">@if</span> <span class="variable">$state</span> == <span class="string">&apos;in-progress&apos;</span> <span class="keyword">or</span> <span class="variable">$state</span> == <span class="string">&apos;current&apos;</span>
+        .<span class="comment">#{$state}</span>
+          &amp;<span class="comment">##{$packet}</span>
+            <span class="symbol">background:</span>
+              <span class="symbol">image:</span> url(<span class="string">&apos;<span class="subst">#{nth(<span class="variable">$joureny_colors</span>, <span class="variable">$i</span>)}</span>-gem-outline.png&apos;</span>)
+              <span class="symbol">size:</span> <span class="number">87</span>%
+              <span class="symbol">repeat:</span> no-repeat
+              <span class="symbol">position:</span> <span class="number">50</span>% <span class="number">60</span>%
+</pre></td></tr></table></figure><br><a href="https://gist.github.com/jmiramant/62011e913b0cc31816e3" target="_blank" rel="external">Gist</a><br><br>After the rewrite, I was a little (lot) excited to haul that piece of junk code out of my, otherwise DRY, perfectly written app (haha), so I sent a tweet:<br><br><img src="/../images/sass_tweet.png" alt="sass_tweet"><br><br>&#x2026;and got some love back from none other than the creator of SASS, <a href="https://twitter.com/chriseppstein" target="_blank" rel="external">@chriseppstein</a> with this sweet little refactor:<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+</pre></td><td class="code"><pre><span class="variable">$journey</span>: (
+states: complete <span class="keyword">in</span>-progress current, packets: 
+  ( strengths: blue, 
+    others: green, 
+    networking: pink, 
+    approach: yellow, 
+    coworker: purple
+  )
+)
+ 
+@function journey-image(<span class="variable">$state</span>, <span class="variable">$packet</span>-color)
+  @<span class="keyword">if</span> <span class="variable">$state</span> == complete
+    @<span class="keyword">return</span> url(<span class="string">&apos;#{$packet-color}-gem.png&apos;</span>)
+  @<span class="keyword">else</span>
+    @<span class="keyword">return</span> url(<span class="string">&apos;#{$packet-color}-gem-outline.png&apos;</span>)
+ 
+@each <span class="variable">$packet</span>, <span class="variable">$packet</span>-color <span class="keyword">in</span> map-get(<span class="variable">$journey</span>, packets)
+  @each <span class="variable">$state</span> <span class="keyword">in</span> map-get(<span class="variable">$journey</span>, states)
+    .<span class="comment">#{$state}</span>
+      &amp;<span class="comment">##{$packet}</span>
+        background:
+          image: journey-image(<span class="variable">$state</span>, <span class="variable">$packet</span>-color)
+          size: <span class="keyword">if</span>(<span class="variable">$state</span> == complete, <span class="number">100</span>%, <span class="number">87</span>%)
+          repeat: no-repeat
+          position: <span class="number">50</span>% <span class="number">60</span>%
+</pre></td></tr></table></figure>
+
+<h3 id="Lessons:">Lessons:</h3>
+<ul>
+<li>The support in the dev communitinty is awesome!</li>
+<li>SASS HAS MAP!!! aka&#x2026;read the docs.</li>
+</ul>
+]]></content>
+    
+    
+      <category term="code" scheme="http://joshmiramant.com/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Tgif]]></title>
+    <link href="http://joshmiramant.com/2014/05/30/tgif/"/>
+    <id>http://joshmiramant.com/2014/05/30/tgif/</id>
+    <published>2014-05-30T11:43:54.000Z</published>
+    <updated>2014-06-04T15:51:37.000Z</updated>
+    <content type="html"><![CDATA[<p>Here&#x2019;s an alias gift to all my web dev friends for to be used at 6pm on Friday!</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>alias tgif=<span class="string">&apos;git commit -am &quot;IM OUTTA HERE... DEAL WITH IT&quot; &amp;&amp; 
+git push -f origin master &amp;&amp; 
+cap deploy&apos;</span>
+</pre></td></tr></table></figure><br>You&#x2019;re welcome!</p>
+]]></content>
+    
+    
+      <category term="code" scheme="http://joshmiramant.com/tags/code/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Me...in Lists]]></title>
+    <link href="http://joshmiramant.com/2014/05/18/me-in-lists/"/>
+    <id>http://joshmiramant.com/2014/05/18/me-in-lists/</id>
+    <published>2014-05-18T11:43:54.000Z</published>
+    <updated>2014-06-04T12:27:01.000Z</updated>
+    <content type="html"><![CDATA[<h3 id="Top_unvisited_destinations:">Top unvisited destinations:</h3>
+<ul>
+<li>Rocklands, South Africa</li>
+<li>Kalymnos, Greece</li>
+<li>Canterbury, New Zealand</li>
+<li>Patagonia, Argentina</li>
+</ul>
+<h3 id="Things_I&#x2019;m_most_fearful_of:">Things I&#x2019;m most fearful of:</h3>
+<ul>
+<li>Meaningless Existence</li>
+<li>Public Shaming</li>
+<li>Ignorance (In Myself)</li>
+<li>Disappointment</li>
+</ul>
+<h3 id="Media_That&#x2019;s_Have_Changed_Me:">Media That&#x2019;s Have Changed Me:</h3>
+<ul>
+<li>The Obstacle is the Way</li>
+<li>4 Hour Work Week</li>
+<li>Catcher in the Rye</li>
+<li>Risk Podcast &#x2013; People being honest</li>
+</ul>
+<h3 id="Definitions_of_Success:">Definitions of Success:</h3>
+<ul>
+<li>Building a profitable business</li>
+<li>Climbing More</li>
+<li>Being Good to Others</li>
+<li>Practice Acceptance (Self and Others)</li>
+<li>Maintaining Deeper Relationships</li>
+</ul>
+<h3 id="Things_I_Look_Forward_To:">Things I Look Forward To:</h3>
+<ul>
+<li>Summiting</li>
+<li>Hiring My First Full Time Employee</li>
+<li>Marriage Proposal</li>
+<li>Kids</li>
+</ul>
+<h3 id="Regrets:">Regrets:</h3>
+<ul>
+<li>My emotional immaturity during my second breakup.</li>
+<li>Conceding who I am to satisfy the others</li>
+<li>Judging too quickly</li>
+</ul>
+<h3 id="Lessons_to_Live_By:">Lessons to Live By:</h3>
+<ul>
+<li>Read More</li>
+<li>You control how you perceive everything. Objection actions and subjective reactions can be decoupled.</li>
+<li>Exercise makes you happier</li>
+<li>Success is elusive and should be a motivator not a goal</li>
+<li>Almost all conflicts can be avoided with and open mind and great communication</li>
+<li>Not all conflicts are worth avoiding</li>
+<li>Humility is a rewarding</li>
+<li>Anything is capable with determination</li>
+</ul>
+]]></content>
+    
+    
+      <category term="random" scheme="http://joshmiramant.com/tags/random/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Excitement]]></title>
+    <link href="http://joshmiramant.com/2014/05/01/excitement/"/>
+    <id>http://joshmiramant.com/2014/05/01/excitement/</id>
+    <published>2014-05-01T10:55:58.000Z</published>
+    <updated>2014-06-04T11:38:24.000Z</updated>
+    <content type="html"><![CDATA[<p>The pinnacle of excitement was the 20 minutes before my family exchanged gifts on Christmas morning. I&#x2019;d have been awake for hours when the clock would finally click to 5am, releasing me from my bed. 3:23&#x2026; </p>
+<p>I anxiously willed the seconds hand on my clock to speed up and chisel away the eternity that had to wait. The seconds hand had different ideas. It was not keen to all the attention. Content to spin round and round the clock with the sole purpose of consistency, my unwelcomed focus made in rebel. It slowed to half time. </p>
+<p>The once soft tick, tock, tick, tock of each second became deafening against my pitiful attempts to sleep. The seconds hand of my cheap clock would sense my desperate efforts to swap anticipation with gentle dreams, and demand attention. The moments before joy, it became my biggest foe.</p>
+]]></content>
+    
+    
+      <category term="creative" scheme="http://joshmiramant.com/tags/creative/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[All About the Benjamins]]></title>
+    <link href="http://joshmiramant.com/2013/12/01/all-about-the-benjamins/"/>
+    <id>http://joshmiramant.com/2013/12/01/all-about-the-benjamins/</id>
+    <published>2013-12-01T11:55:58.000Z</published>
+    <updated>2014-06-04T12:29:34.000Z</updated>
+    <content type="html"><![CDATA[<p>A few years ago, I came across a Princeton study that revealed once an individual earns $75,000 a year, additional earnings have little to no impact on &#x201C;emotional well-being.&#x201D; Though we&#x2019;ve all heard the adage, &#x201C;Money can&#x2019;t buy happiness&#x201D;, this quantification certainly casts a different light on the meaning. My surprise of this discovery was revealing for two reasons:</p>
+<ol>
+<li>I had thought high earns played some, if not a significant, relational role to happiness.</li>
+<li>I had assumed this number to be higher.</li>
+</ol>
+<p>With this in mind, I thought back to decisions I made in college that could be attributed to an aspiration to obtain wealth. My pursuit of a corporate law career was not solely based on an passion to trade my youth to a corporation to interpret dense rules in legalese. It seems that money may have played some part in justifying the means. The curious part, I didn&#x2019;t have a dollar amount associated with my pursuit of wealth but I was willing to sacrifice a lot to get there.</p>
+<p>Learning this had made, what were once tough decisions, seem clear. The decision between attending Law School or taking a less traditional path of joining a tech startup no longer weighed equally. Realizing this number to be obtainable allowed for the prioritization of more important considerations, like interests, a drive of purpose and the pursuit of mastery. This study was the scientific affirmation to pursue results of the commonly asked question, &#x201C;What would you do if you didn&#x2019;t have to consider money?&#x201D;</p>
+]]></content>
+    
+    
+      <category term="thoughts" scheme="http://joshmiramant.com/tags/thoughts/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Six Sentences]]></title>
+    <link href="http://joshmiramant.com/2009/11/16/six-sentences/"/>
+    <id>http://joshmiramant.com/2009/11/16/six-sentences/</id>
+    <published>2009-11-16T12:43:54.000Z</published>
+    <updated>2014-06-04T13:28:00.000Z</updated>
+    <content type="html"><![CDATA[<p>The entire adventure was sparked from six sentence. These six, simply written, grammatically questionable sentences were the collective &#x2018;research&#x2019; from two sources, the first &#x201C;Alternatives to the Inca Trail&#x201D; and the other &#x201C;Extreme Shoestring Travel Blog 121&#x201D;. This was all the information in existence about a &#x2018;cheap&#x2019; way to reach Machhu Picchu. This was all it took.</p>
+<p>For a little background, Machhu Picchu is deep in the jungle. Due to the excessive tourism, the traditional path to the ruins is expensive to normal folks. But considerable more expensive to dirtbag, shoestring travelers with with pennies to our name. Ian and I were determined to find another way. So we begin searching. After two days, hours on the blogs and countless conversations with locals, we had found only six sentences outlining an alterative. It was a brief explaination. Frankly, explaination might be too stong of word. The brief hint of an alternative was little more than an allure. But we were determined. In absences of information, we were fueled by blind confidence. A combination enshuring either a grand adventure or a rapid path to catastrophe.</p>
+<p>The six sentences spoke of a trek deep within the Peruvian jungle. It spoke of a journey far away from our comfortable existence of hostels and eateries. It spoke of crossing a river that had, literally, claimed lives. Under a picture of a raging river it read, &#x201C;In order to cross the river you&#x2019;ve got to balance yourself on a steel platform attached to a large cable, suspended above the raging river. As you pull yourself across hand by hand, try to put out of mind those who have lost their lives in the crossing&#x201D;. Short, sweet, effective. We had found our path to Machu Picchu.</p>
+<p>There was a way into Machu Picchu, it was cheap, it was involved, it was a mystery and best of all, it was set in a jungle with path to an ancient lost civilization. All criterion met for an Indian Jones adventure, minus the Sallah and the hat. The six sentences provided more questions than answer. But they were burnt into our minds taunting us to pursue. They embodied out tattered treasure map. There was a clear start, where we sat plotting in our comfortable hostle Cucso, and the X was evident but parts in-between were far from clear. In the absence of information, it left more to the imagination. I read those simple 6 setence over and over as I packed our bag from Cusco. I read them until I memorized them and then I read them again. I reached deep into the subcontext of the measly paragraph, and I felt no more prepared.</p>
+<p>The journey started with 15 hour bus ride and 5 hours of moutainous hiking through villages to arrive in a town with what locals generously described as a &#x2018;shuttle&#x2019;. When a rusty old van driving by a 15 year old local peruvain came barreling into town, we knew our ride had arrived. We pilled into the back with a dozen other locals, giving an undersized clown car a run of space maximization. The door slid shut and out teenage drive stomped on the gas. A dirt cloud sprung up behind us and we went barrling forward on an abused old road cut narrowly into the edge of a wide valley. Packed in the middle of the van, I was without a view of the passing landscape. Ian was not so lucky. I glanced toward him to see repressed horror on his face. He was reacting to the whir of the landscape flying by. Even the typically calm and collected Ian, was unable to hind the fatal potential of this shuttle ride. We were barrelling along at 50 mph, wheels just 6 inches from a 200 foot drop into a boulder scattered canyon. I asked what was wrong and started laughing ingnorantly at his description, now slightly less disspoint I wasn&#x2019;t wedged agaist a window to enjoy the view. </p>
+<p>The single-lane, dirt road was poorly etched in the side of a gravely mountain-side. This portion of the trek was a connecting path between the small town of Santa Teresa and an industrial hydro electrical plant. Just one leg of our journey. This was nothing more than a local workers access road. A windy, two-way, one lane, no speed limit, dirt road with many blind turns and many wash outs. Our 15 year old driver exuded confidence. Or maybe that was enthusiastic disregard. He showed such little concern for the dire situation to a degree that taking his eyes off the radio while barreling around a blind corner would have been a burden. The gas gauge on light-grey dashboard hung squarely in the &#x201C;E&#x201D;. I considered the sliverlining of &#x201C;low tank=small explosion&#x201D;. At least my body could be identified if our tire moved about 2 inches to the left and we sped into the ravine below. I found myself laughing because there was little else I could do. I had chosen to laugh so I wasn&#xB4;t forced to count the endless ways in which I my life could be over in a unpleasant chain of events resulting in a fiery explosive death. Our teenage driver clear aimed to up the anti by take blind turns into oncoming traffic going 40 mph. This was necessary because driving fast on a single-lane path is not nearly interesting to pique our drivers interest. He wanted to add head on collision and inattentive driving to the mix.</p>
+<p>Despite our drivers best efforts, we did make it.</p>
+<p>Now we were off to the jungle&#x2026;</p>
+]]></content>
+    
+    
+      <category term="travel" scheme="http://joshmiramant.com/tags/travel/"/>
+    
+  </entry>
+  
+</feed>
