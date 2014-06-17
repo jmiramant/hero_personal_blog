@@ -1,1 +1,14 @@
-{"name":"hexo-site","version":"2.6.1","private":true,"dependencies":{"hexo-renderer-ejs":"*","hexo-renderer-stylus":"*","hexo-renderer-marked":"*","connect":"2.x"}}
+{
+  "name": "hexo-site",
+  "version": "2.6.1",
+  "private": true,
+  "dependencies": {
+    "hexo-renderer-ejs": "*",
+    "hexo-renderer-stylus": "*",
+    "hexo-renderer-marked": "*",
+    "connect": "2.x",
+    "hexo-renderer-coffeescript": "^0.1.0",
+    "hexo-renderer-ruby-sass": "0.0.2",
+    "hexo-generator-feed": "^0.1.1"
+  }
+}
