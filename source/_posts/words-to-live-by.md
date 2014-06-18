@@ -1,6 +1,6 @@
 title: Words to Live By
 date: 2014-06-17 08:01:29
-tags: 'thoughts'
+categories: 'thoughts'
 ---
 Just came across a favorite quote of mine:
 

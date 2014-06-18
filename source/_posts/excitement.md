@@ -1,6 +1,6 @@
 title: 'Excitement'
 date: 2014-05-01 03:55:58
-tags: 'creative'
+categories: 'creative'
 ---
 The pinnacle of excitement was the 20 minutes before my family exchanged gifts on Christmas morning. I’d have been awake for hours when the clock would finally click to 5am, releasing me from my bed. 3:23… 
 

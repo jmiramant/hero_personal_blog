@@ -1,6 +1,6 @@
 title: 'All About the Benjamins'
 date: 2013-12-01 03:55:58
-tags: 'thoughts'
+categories: 'thoughts'
 ---
 
 A few years ago, I came across a Princeton study that revealed once an individual earns $75,000 a year, additional earnings have little to no impact on “emotional well-being.” Though we’ve all heard the adage, “Money can’t buy happiness”, this quantification certainly casts a different light on the meaning. My surprise of this discovery was revealing for two reasons:
