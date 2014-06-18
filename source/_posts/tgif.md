@@ -9,8 +9,8 @@ tags:
 Here's an alias gift to all my web dev friends for to be used at 6pm on Friday!
 
 ``` bash
-  alias tgif='git commit -am "IM OUTTA HERE... DEAL WITH IT" && 
-  git push -f origin master && 
+  alias tgif='git commit -am "IM OUTTA HERE... DEAL WITH IT" &&
+  git push -f origin master &&
   cap deploy'
 ```
 You're welcome!

@@ -6,7 +6,7 @@ tags:
 - backbone.marionette
 ---
 
-When switching to JS apps from Rails, I missed the ENV declaration that's built into configuration, so I through together this solution: 
+When switching to JS apps from Rails, I missed the ENV declaration that's built into configuration, so I through together this solution:
 
 ``` coffeescript
 

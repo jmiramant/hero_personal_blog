@@ -80,7 +80,7 @@ Here's the starting code. Get ready. It's ugly. Don't run:
 
 ``` sass
 $journey_states: complete, in-progress, current
-$joureny_packets: strengths, others, networking, approach, 
+$joureny_packets: strengths, others, networking, approach,
   coworker
 $joureny_colors: blue, green, pink, yellow, purple
   @each $packet in $joureny_packets
@@ -109,25 +109,25 @@ After the rewrite, I was a little (lot) excited to haul that piece of junk code 
 
 ![sass_tweet](/../images/sass_tweet.png)
 
-...and got some love back from none other than the creator of SASS, [@chriseppstein](https://twitter.com/chriseppstein) with this sweet little refactor: 
+...and got some love back from none other than the creator of SASS, [@chriseppstein](https://twitter.com/chriseppstein) with this sweet little refactor:
 
 ``` bash
 $journey: (
-states: complete in-progress current, packets: 
-  ( strengths: blue, 
-    others: green, 
-    networking: pink, 
-    approach: yellow, 
+states: complete in-progress current, packets:
+  ( strengths: blue,
+    others: green,
+    networking: pink,
+    approach: yellow,
     coworker: purple
   )
 )
- 
+
 @function journey-image($state, $packet-color)
   @if $state == complete
     @return url('#{$packet-color}-gem.png')
   @else
     @return url('#{$packet-color}-gem-outline.png')
- 
+
 @each $packet, $packet-color in map-get($journey, packets)
   @each $state in map-get($journey, states)
     .#{$state}
@@ -139,6 +139,6 @@ states: complete in-progress current, packets:
           position: 50% 60%
 ```
 
-### Lessons: 
+### Lessons:
 * The support in the dev communitinty is awesome!
 * SASS HAS MAP!!! aka...read the docs.

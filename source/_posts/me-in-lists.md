@@ -5,13 +5,13 @@ tags:
 - reflections
 ---
 
-### Top unvisited destinations: 
+### Top unvisited destinations:
 
 * Rocklands, South Africa
 * Kalymnos, Greece
 * Canterbury, New Zealand
 * Patagonia, Argentina
- 
+
 ### Things I’m most fearful of:
 
 * Meaningless Existence
