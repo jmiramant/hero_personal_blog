@@ -1,6 +1,9 @@
 title: 'Six Sentences'
 date: 2009-11-16 04:43:54
 categories: 'travel'
+tags:
+- machu picchu
+- shoestring travel
 ---
 
 The entire adventure was sparked from six sentence. These six, simply written, grammatically questionable sentences were the collective 'research' from two sources, the first "Alternatives to the Inca Trail" and the other "Extreme Shoestring Travel Blog 121". This was all the information in existence about a 'cheap' way to reach Machhu Picchu. This was all it took.

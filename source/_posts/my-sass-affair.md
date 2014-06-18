@@ -1,6 +1,8 @@
 title: 'My Sass Affair'
 date: 2014-06-04 04:43:54
 categories: 'code'
+tags:
+- sass
 ---
 
 I took a couple hours last week to leave my beloved CoffeeScript land, and dive into some awesome SASS refactors. It reminded me how powerful the compiler really is. At times, I found myself swearing at the syntax, but then I remembered that I was writing CSS, quit my whining and fell a little more in love...

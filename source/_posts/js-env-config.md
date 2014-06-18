@@ -1,6 +1,9 @@
 title: 'JS ENV Config'
 date: 2014-06-04 08:55:48
 categories: 'code'
+tags:
+- coffeescript
+- backbone.marionette
 ---
 
 When switching to JS apps from Rails, I missed the ENV declaration that's built into configuration, so I through together this solution: 
