@@ -1,9 +1,9 @@
 title: 'JS ENV Config'
 date: 2014-06-04 08:55:48
-tags: 'code'
+categories: 'code'
 ---
 
-When switching to JS apps from Rails, I missed the ENV declaration that's built into configuration, so I through together this solution: 
+When switching to JS apps from Rails, I missed the ENV declaration that's built into configuration, so I through together this solution:
 
 ``` coffeescript
 
